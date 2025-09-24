@@ -23,7 +23,7 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
     private Button btnSignUp;
     private EditText edtEmail, edtPass, edtRPass;
-    private TextView txSignUp;
+    private TextView txSignIn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -35,7 +35,9 @@ public class SignUp extends AppCompatActivity {
         edtEmail = findViewById(R.id.Email);
         edtPass= findViewById(R.id.Password);
         edtRPass = findViewById(R.id.RPassword);
+        txSignIn =findViewById(R.id.txSignin);
         mAuth = FirebaseAuth.getInstance();
+        txSignIn.setOnClickListener(v -> startActivity(new Intent(SignUp.this, Login.class)));
         btnSignUp.setOnClickListener(v -> Register());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
