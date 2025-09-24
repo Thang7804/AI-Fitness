@@ -27,6 +27,9 @@
         <activity
             android:name=".SignUp"
             android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

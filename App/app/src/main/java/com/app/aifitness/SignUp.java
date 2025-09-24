@@ -31,7 +31,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.sign_up);
-        btnSignUp = findViewById(R.id.btnSignIn);
+        btnSignUp = findViewById(R.id.btnSignUp);
         edtEmail = findViewById(R.id.Email);
         edtPass= findViewById(R.id.Password);
         edtRPass = findViewById(R.id.RPassword);

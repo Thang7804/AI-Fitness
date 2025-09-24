@@ -7,12 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,7 +26,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         edtEmail = findViewById(R.id.Email);
         edtPassword = findViewById(R.id.Password);
-        btnLogin = findViewById(R.id.btnSignIn);
+        btnLogin = findViewById(R.id.btnSignUp);
         txSignUp = findViewById(R.id.txSignin);
         mAuth = FirebaseAuth.getInstance();
         btnLogin.setOnClickListener(v -> loginUser());
@@ -56,6 +52,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "User is null", Toast.LENGTH_SHORT).show();
                             return;
                         }
+
                         String uid = firebaseUser.getUid();
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -64,15 +61,16 @@ public class Login extends AppCompatActivity {
                                 .addOnSuccessListener(documentSnapshot -> {
                                     if (documentSnapshot.exists()) {
                                         Boolean isNew = documentSnapshot.getBoolean("isNew");
-                                        runOnUiThread(() -> {
-                                            if (isNew != null && isNew) {
-                                                startActivity(new Intent(Login.this, Question.class));
-                                            } else {
-                                                startActivity(new Intent(Login.this, MainActivity.class));
-                                            }
-                                            finish();
-                                        });
+                                        if (isNew != null && isNew) {
+                                            startActivity(new Intent(Login.this, Question.class));
+                                        } else {
+                                            startActivity(new Intent(Login.this, MainActivity.class));
+                                        }
+                                    } else {
+                                        Toast.makeText(Login.this, "No user data, redirecting...", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Login.this, Question.class));
                                     }
+                                    finish();
                                 })
                                 .addOnFailureListener(e ->
                                         Toast.makeText(Login.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show()
@@ -85,4 +83,5 @@ public class Login extends AppCompatActivity {
                 });
     }
 
-    }
+
+}

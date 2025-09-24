@@ -42,11 +42,12 @@ public class Question extends AppCompatActivity {
     };
     private int currentQuestion = 0;
     private String selectedAnswer = null;
-    int defaultColor = ContextCompat.getColor(this, R.color.buton);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        int defaultColor = ContextCompat.getColor(this, R.color.buton);
         tvQuestion = findViewById(R.id.tvQuestion);
         op1 = findViewById(R.id.op1);
         op2 = findViewById(R.id.op2);
