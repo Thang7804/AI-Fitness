@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.app.aifitness.MainActivity;
 import com.app.aifitness.R;
 import com.app.aifitness.viewmodel.QuestionVM;
 
@@ -87,7 +86,7 @@ public class Question extends AppCompatActivity {
 
         viewModel.getUpdateStatus().observe(this, status -> {
             if ("updated".equals(status)) {
-                startActivity(new Intent(Question.this, MainActivity.class));
+
                 finish();
             } else if (status != null && status.startsWith("error")) {
                 Toast.makeText(this, status, Toast.LENGTH_SHORT).show();

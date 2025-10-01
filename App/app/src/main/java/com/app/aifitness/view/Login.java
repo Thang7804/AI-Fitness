@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.app.aifitness.MainActivity;
 import com.app.aifitness.R;
 import com.app.aifitness.viewmodel.LoginVM;
 
@@ -55,7 +53,7 @@ public class Login extends AppCompatActivity {
                 if (user.isNew()) {
                     startActivity(new Intent(Login.this, Question.class));
                 } else {
-                    startActivity(new Intent(Login.this, MainActivity.class));
+                    finish();
                 }
                 finish();
             } else {
