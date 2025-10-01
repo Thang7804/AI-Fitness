@@ -25,10 +25,14 @@ public class LoginVM extends ViewModel {
     }
 
     public void loginUser(String email, String password) {
-        repository.loginUser(email, password).observeForever(result -> loginResult.setValue(result));
+        repository.loginUser(email, password).observeForever(result -> {
+            loginResult.setValue(result);
+        });
     }
 
     public void fetchUserData() {
-        repository.getUserData().observeForever(user -> userData.setValue(user));
+        repository.getUserData().observeForever(user -> {
+            userData.setValue(user);
+        });
     }
 }
