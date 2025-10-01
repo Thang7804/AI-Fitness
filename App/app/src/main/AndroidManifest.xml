@@ -13,10 +13,10 @@
         android:theme="@style/Theme.AIFitness"
         tools:replace="android:allowBackup,android:fullBackupContent,android:dataExtractionRules,android:theme,android:label" >
         <activity
-            android:name=".Question"
+            android:name=".view.Question"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".view.Login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUp"
+            android:name=".view.SignUp"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
