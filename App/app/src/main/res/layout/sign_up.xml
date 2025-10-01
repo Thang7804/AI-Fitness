@@ -52,9 +52,9 @@
             android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FDFDFD"
             android:inputType="textEmailAddress"
-            android:textSize="16sp"
-            android:textColor="@color/white" />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,9 +73,10 @@
             android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:inputType="textPassword"
-            android:textSize="16sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,9 +95,10 @@
             android:id="@+id/RPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:inputType="textPassword"
-            android:textSize="16sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

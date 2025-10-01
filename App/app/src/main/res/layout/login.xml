@@ -46,14 +46,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        app:boxStrokeColor="@color/teal_200"
+        app:boxStrokeColor="@color/buton"
         app:hintTextColor="@color/buton">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#D9AFAF"
+            android:background="#FFFFFF"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -75,6 +75,7 @@
             android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:inputType="textPassword"
             android:textSize="16sp" />
 
