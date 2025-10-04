@@ -8,14 +8,14 @@
     android:padding="24dp"
     android:gravity="center">
 
+
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/ic_launcher_foreground"
-        app:tint="@color/white"
-        android:layout_marginBottom="16dp" />
-
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -104,7 +104,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
@@ -116,32 +116,26 @@
         app:backgroundTint="@color/buton"
         app:elevation="4dp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:alpha="0.9"
+        android:text="Already have account? "
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Already have account? "
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:alpha="0.9" />
-
-        <TextView
-            android:id="@+id/txSignin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="6dp" />
-
-    </LinearLayout>
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/buton"
+        app:cornerRadius="30dp"
+        app:elevation="4dp" />
 
 </LinearLayout>
