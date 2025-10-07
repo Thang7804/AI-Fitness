@@ -7,6 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="buton">#E63D3D</color>
-    <color name="appbackground">#323232</color>
+    <color name="buton">#FF9800</color>
+
+    <style name="WhiteDatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorControlActivated">#FFFFFF</item> <!-- màu trắng cho spinner -->
+        <item name="android:textColorPrimary">#FFFFFF</item> <!-- màu chữ trắng -->
+    </style>
 </resources>

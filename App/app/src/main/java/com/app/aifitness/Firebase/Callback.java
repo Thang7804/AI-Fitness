@@ -1,5 +1,5 @@
 package com.app.aifitness.Firebase;
-public interface AuthCallback {
+public interface Callback {
     void onSuccess();
     void onError(String error);
 }

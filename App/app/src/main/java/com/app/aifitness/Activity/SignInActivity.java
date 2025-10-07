@@ -8,7 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.aifitness.Firebase.AuthCallback;
+import com.app.aifitness.Activity.Question.BasicInfo;
+import com.app.aifitness.Activity.Question.EquipHeatlth;
+import com.app.aifitness.Firebase.Callback;
 import com.app.aifitness.Firebase.FirebaseHelper;
 import com.app.aifitness.R;
 
@@ -32,10 +34,12 @@ public class SignInActivity extends AppCompatActivity {
             if(email.isEmpty() || password.isEmpty()){
                 Toast.makeText(this,"Please enter email and password",Toast.LENGTH_SHORT ).show();
             }
-            FirebaseHelper.getInstance().loginUser(email, password, new AuthCallback() {
+            FirebaseHelper.getInstance().loginUser(email, password, new Callback() {
                 @Override
                 public void onSuccess() {
                     Toast.makeText(SignInActivity.this, "SignIn Successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignInActivity.this, BasicInfo.class);
+                    startActivity(intent);
                 }
 
                 @Override

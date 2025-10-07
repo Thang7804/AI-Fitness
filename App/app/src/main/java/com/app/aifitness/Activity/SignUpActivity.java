@@ -6,13 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.app.aifitness.Firebase.AuthCallback;
+import com.app.aifitness.Firebase.Callback;
 import com.app.aifitness.Firebase.FirebaseHelper;
 import com.app.aifitness.R;
 
@@ -38,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
             if(!password.equals(rpassword)){
                 Toast.makeText(this, "Password and RepeatPassword is not match", Toast.LENGTH_SHORT).show();
             }
-            FirebaseHelper.getInstance().registerUser(email, password, new AuthCallback() {
+            FirebaseHelper.getInstance().registerUser(email, password, new Callback() {
                 @Override
                 public void onSuccess() {
                     Toast.makeText(SignUpActivity.this, "Sign Up Succressfully", Toast.LENGTH_SHORT).show();
