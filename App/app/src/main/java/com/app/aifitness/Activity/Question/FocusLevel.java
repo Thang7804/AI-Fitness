@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +21,7 @@ public class FocusLevel extends AppCompatActivity {
     private RadioGroup rgFocus;
     private RadioGroup rgLevel;
     private Button btnNext;
+    private TextView btnBack ;
     private User currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,12 @@ public class FocusLevel extends AppCompatActivity {
         rgFocus = findViewById(R.id.rgBodyFocus);
         rgLevel= findViewById(R.id.rgFitnessLevel);
         btnNext = findViewById(R.id.btnNextFocusLevel);
+        btnBack = findViewById(R.id.btnBack);
         currentUser = (User) getIntent().getSerializableExtra("user");
+        btnBack.setOnClickListener(v->{
+            Intent intent = new Intent(FocusLevel.this, SheduleInfo.class);
+            startActivity(intent);
+        });
         btnNext.setOnClickListener(v->{
             int selectedId1 = rgFocus.getCheckedRadioButtonId();
             if (selectedId1 == R.id.rbFullBody) {

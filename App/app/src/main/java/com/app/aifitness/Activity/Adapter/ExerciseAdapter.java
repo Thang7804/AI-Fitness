@@ -45,11 +45,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         holder.tvExerciseName.setText(name != null ? name : "Unnamed Exercise");
 
         if (type != null) {
-            if (type.equals("rest")) {
-                holder.tvExerciseDetail.setText("Rest day");
-            } else {
-                holder.tvExerciseDetail.setText(type + ": " + value);
-            }
+            holder.tvExerciseDetail.setText(type + ": " + value);
         } else {
             holder.tvExerciseDetail.setText("Unknown type");
         }

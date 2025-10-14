@@ -38,13 +38,11 @@ public class BuildActivity extends AppCompatActivity {
             return;
         }
 
-        // Lấy user
         firebaseHelper.getCurrentUser(userId, new DataCallBack<User>() {
             @Override
             public void onSuccess(User user) {
                 Log.d("BuildActivity", "Fetched user: " + user.email);
 
-                // Lấy tất cả bài tập
                 firebaseHelper.getAllExercises(new DataCallBack<List<Exercise>>() {
                     @Override
                     public void onSuccess(List<Exercise> exercises) {

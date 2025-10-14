@@ -6,8 +6,16 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#000000">
-
-    <!-- Câu hỏi 1: Equipment available -->
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="← Back"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +34,6 @@
             android:textAlignment="center" />
     </androidx.cardview.widget.CardView>
 
-    <!-- RadioGroup cho thiết bị -->
     <RadioGroup
         android:id="@+id/rgEquipment"
         android:layout_width="match_parent"
@@ -52,7 +59,6 @@
             android:buttonTint="#FF9800" />
     </RadioGroup>
 
-    <!-- Câu hỏi 2: Health issues -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,7 +77,6 @@
             android:textAlignment="center" />
     </androidx.cardview.widget.CardView>
 
-    <!-- RadioGroup cho tình trạng sức khỏe -->
     <RadioGroup
         android:id="@+id/rgHealthIssues"
         android:layout_width="match_parent"
@@ -117,15 +122,13 @@
 
     </RadioGroup>
 
-    <!-- EditText hiện khi chọn Other -->
 
-    <!-- Khoảng đệm -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Nút Finish -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFinishSetup"
         android:layout_width="match_parent"

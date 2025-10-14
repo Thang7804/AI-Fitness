@@ -26,6 +26,7 @@ public class ExerciseDetail extends AppCompatActivity {
     private TextView tvExerciseName, tvExerciseId, tvDescription, tvCameraAngle, tvCalories, tvDuration;
     private WebView webViewYoutube;
     private MaterialButton btnStartExercise;
+    private TextView btnBack ;
     private String exerciseType;
     private int exerciseValue;
     private String exerciseId;
@@ -40,13 +41,27 @@ public class ExerciseDetail extends AppCompatActivity {
         Map<String, Object> exerciseMap = (Map<String, Object>) data;
         exerciseId = (String) exerciseMap.get("id");
         exerciseType = (String) exerciseMap.get("type");
-        exerciseValue = (Integer) exerciseMap.get("value");
+        Object value = exerciseMap.get("value");
+        if (value instanceof Long) {
+
+            exerciseValue = ((Long) value).intValue();
+        } else if (value instanceof Integer) {
+            exerciseValue = (Integer) value;
+        } else {
+
+            exerciseValue = 0;
+
+        }
 
         String targetText = exerciseType.equals("time")
                 ? "Time: " + exerciseValue + " sec"
                 : "Reps: " + exerciseValue;
         tvDuration.setText(targetText);
-
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ExerciseDetail.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
         setupWebView();
         loadExerciseDetails();
     }
@@ -60,6 +75,7 @@ public class ExerciseDetail extends AppCompatActivity {
         tvDuration = findViewById(R.id.tvDuration);
         webViewYoutube = findViewById(R.id.webViewYoutube);
         btnStartExercise = findViewById(R.id.btnStartExercise);
+        btnBack=findViewById(R.id.btnBack);
     }
 
     private void setupWebView() {
@@ -79,14 +95,12 @@ public class ExerciseDetail extends AppCompatActivity {
                     return;
                 }
 
-                // Hiển thị thông tin
                 tvExerciseName.setText(exercise.name);
                 tvExerciseId.setText("ID: " + exercise.id);
                 tvDescription.setText(exercise.description);
                 tvCameraAngle.setText("Camera: " + exercise.cameraSide);
                 tvCalories.setText("Calories/min: " + exercise.caloriesPerMin);
 
-                // Nạp video
                 if (exercise.videoUrl != null && !exercise.videoUrl.isEmpty()) {
                     String videoId = extractYoutubeId(exercise.videoUrl);
                     if (!videoId.isEmpty()) {

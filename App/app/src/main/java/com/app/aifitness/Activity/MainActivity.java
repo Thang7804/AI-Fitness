@@ -13,9 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.aifitness.Firebase.DataCallBack;
 import com.app.aifitness.Firebase.FirebaseHelper;
+import com.app.aifitness.Model.User;
 import com.app.aifitness.R;
 
 import java.util.List;
+import com.app.aifitness.Activity.Adapter.ScheduleAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvScheduleDays;
@@ -31,15 +33,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadScheduleDays() {
-        FirebaseHelper.getInstance().getUserScheduleDays(new DataCallBack<List<String>>() {
+        FirebaseHelper.getInstance().getCurrentUser(FirebaseHelper.getInstance().getCurrentUserId(), new DataCallBack<User>() {
             @Override
-            public void onSuccess(List<String> dayList) {
-                if (dayList.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Chưa có lịch tập", Toast.LENGTH_SHORT).show();
-                } else {
-                    com.app.aifitness.Adapter.ScheduleAdapter adapter = new com.app.aifitness.Adapter.ScheduleAdapter(MainActivity.this, dayList);
-                    rvScheduleDays.setAdapter(adapter);
+            public void onSuccess(User user) {
+                if (user == null || user.schedule == null || user.schedule.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "No schedule days found", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                ScheduleAdapter adapter = new ScheduleAdapter(MainActivity.this, user.schedule);
+                rvScheduleDays.setAdapter(adapter);
             }
 
             @Override

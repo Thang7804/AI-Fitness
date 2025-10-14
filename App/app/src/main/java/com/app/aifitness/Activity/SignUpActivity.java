@@ -30,19 +30,23 @@ public class SignUpActivity extends AppCompatActivity {
             String rpassword = edtRPassword.getText().toString().trim();
             if(email.isEmpty() || password.isEmpty() || rpassword.isEmpty()){
                 Toast.makeText(this, "Please fill", Toast.LENGTH_SHORT).show();
+                return;
             }
             if(!password.equals(rpassword)){
                 Toast.makeText(this, "Password and RepeatPassword is not match", Toast.LENGTH_SHORT).show();
+                return;
             }
             FirebaseHelper.getInstance().registerUser(email, password, new Callback() {
                 @Override
                 public void onSuccess() {
                     Toast.makeText(SignUpActivity.this, "Sign Up Succressfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                 }
 
                 @Override
                 public void onError(String error) {
                     Toast.makeText(SignUpActivity.this, error, Toast.LENGTH_SHORT).show();
+                    return;
                 }
             });
         });

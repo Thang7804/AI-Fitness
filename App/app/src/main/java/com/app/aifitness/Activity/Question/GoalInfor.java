@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.aifitness.Model.User;
 import com.app.aifitness.R;
+import com.google.android.material.textview.MaterialTextView;
 
 public class GoalInfor extends AppCompatActivity {
     private RadioGroup rgGoal;
     private EditText edtGoalWeight;
     private Button btnSubmit;
+    private TextView btnBack ;
     private User currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,12 @@ public class GoalInfor extends AppCompatActivity {
         rgGoal = findViewById(R.id.rgFitnessGoal);
         edtGoalWeight= findViewById(R.id.edtTargetWeight);
         btnSubmit = findViewById(R.id.btnNextGoal);
+        btnBack = findViewById(R.id.btnBack);
         currentUser = (User) getIntent().getSerializableExtra("user") ;
+        btnBack.setOnClickListener(v->{
+            Intent intent = new Intent(GoalInfor.this, BasicInfo.class);
+            startActivity(intent);
+        });
         btnSubmit.setOnClickListener(v->{
             int selectedId = rgGoal.getCheckedRadioButtonId();
             if (selectedId == R.id.rbLoseWeight) {

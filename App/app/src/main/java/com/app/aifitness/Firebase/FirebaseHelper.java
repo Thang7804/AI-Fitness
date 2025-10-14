@@ -48,10 +48,11 @@ public class FirebaseHelper {
     public void loginUser(String email, String password, Callback callback) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
+
                     if (task.isSuccessful()) {
                         callback.onSuccess();
                     } else {
-                        callback.onError("Signin error: " + task.getException().getMessage());
+                        callback.onError("Sign in error: " + task.getException().getMessage());
                     }
                 });
     }
@@ -117,41 +118,6 @@ public class FirebaseHelper {
                 .addOnFailureListener(e -> callback.onError(e.getMessage()));
     }
 
-    public void getUserScheduleDays(DataCallBack<List<String>> callback) {
-        String uid = getCurrentUserId();
-        if (uid == null) {
-            callback.onError("User chưa đăng nhập");
-            return;
-        }
-
-        db.collection("Users").document(uid)
-                .get()
-                .addOnSuccessListener(doc -> {
-                    if (doc.exists()) {
-                        Map<String, Object> schedule = (Map<String, Object>) doc.get("schedule");
-                        if (schedule != null && !schedule.isEmpty()) {
-                            List<String> dayList = new ArrayList<>(schedule.keySet());
-                            dayList.sort((a, b) -> {
-                                try {
-                                    int numA = Integer.parseInt(a.replaceAll("[^0-9]", ""));
-                                    int numB = Integer.parseInt(b.replaceAll("[^0-9]", ""));
-                                    return Integer.compare(numA, numB);
-                                } catch (Exception e) {
-                                    return a.compareTo(b);
-                                }
-                            });
-                            callback.onSuccess(dayList);
-                        } else {
-                            callback.onSuccess(new ArrayList<>());
-                        }
-                    } else {
-                        callback.onError("Không tìm thấy user");
-                    }
-                })
-                .addOnFailureListener(e -> callback.onError("Lỗi: " + e.getMessage()));
-    }
-
-
     public void getAllExercises(DataCallBack<List<Exercise>> callback) {
         db.collection("exercises")
                 .get()
@@ -180,7 +146,21 @@ public class FirebaseHelper {
                 })
                 .addOnFailureListener(e -> callback.onError(e.getMessage()));
     }
+    public void updateIsNewStatus(String uid,boolean isNewStatus, Callback updateCallback) {
+        if (uid == null) {
+            updateCallback.onError("User chưa đăng nhập");
+            return;
+        }
 
+        DocumentReference userRef = db.collection("Users").document(uid);
+        Map<String, Object> update = new HashMap<>();
+
+        update.put("isNew", isNewStatus);
+
+        userRef.update(update)
+                .addOnSuccessListener(aVoid -> updateCallback.onSuccess())
+                .addOnFailureListener(e -> updateCallback.onError( e.getMessage()));
+    }
     public String getCurrentUserId() {
         return mAuth.getCurrentUser() != null ? mAuth.getCurrentUser().getUid() : null;
     }

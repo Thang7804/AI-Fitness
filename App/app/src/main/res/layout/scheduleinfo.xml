@@ -7,7 +7,16 @@
     android:padding="16dp"
     android:background="#000000">
 
-
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="← Back"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -137,13 +146,12 @@
             android:buttonTint="#FF9800" />
     </RadioGroup>
 
-    <!-- Khoảng đệm đẩy nút xuống cuối -->
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Nút Next -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNextSchedule"
         android:layout_width="match_parent"

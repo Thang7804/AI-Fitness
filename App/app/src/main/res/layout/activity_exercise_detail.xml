@@ -8,7 +8,7 @@
     android:background="@color/black"
     android:padding="16dp">
 
-    <!-- Header -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,9 @@
             android:text="← Back"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
             android:layout_width="0dp"
@@ -35,7 +37,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- WebView (fixed height) -->
     <WebView
         android:id="@+id/webViewYoutube"
         android:layout_width="match_parent"

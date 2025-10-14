@@ -47,7 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/buton"
-        app:hintTextColor="@color/buton">
+        app:hintEnabled="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Email"
@@ -57,9 +58,8 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:hint="Email"
-            android:textColorHint="@color/black"/>
-
+            android:textColorHint="@color/black"
+            android:hint="Email"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -70,7 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:boxStrokeColor="@color/buton"
-        app:hintTextColor="@color/buton">
+        app:hintEnabled="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Password"
@@ -79,10 +80,9 @@
             android:background="#FFFFFF"
             android:inputType="textPassword"
             android:textSize="16sp"
-            android:hint="Password"
             android:textColorHint="@color/black"
-            android:textColor="@color/black"/>
-
+            android:textColor="@color/black"
+            android:hint="Password"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -109,6 +109,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         tools:text="Don't have account?" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignUp"

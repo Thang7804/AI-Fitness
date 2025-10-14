@@ -10,7 +10,7 @@
     <color name="buton">#FF9800</color>
 
     <style name="WhiteDatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
-        <item name="colorControlActivated">#FFFFFF</item> <!-- màu trắng cho spinner -->
-        <item name="android:textColorPrimary">#FFFFFF</item> <!-- màu chữ trắng -->
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
     </style>
 </resources>

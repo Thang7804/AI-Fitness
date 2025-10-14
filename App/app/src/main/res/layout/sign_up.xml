@@ -8,7 +8,6 @@
     android:padding="24dp"
     android:gravity="center">
 
-
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="100dp"
@@ -27,7 +26,6 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp" />
 
-
     <TextView
         android:id="@+id/subtitleText"
         android:layout_width="wrap_content"
@@ -38,14 +36,14 @@
         android:textSize="16sp"
         android:layout_marginBottom="32dp" />
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white">
+        app:boxStrokeColor="@color/buton"
+        app:hintEnabled="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Email"
@@ -55,11 +53,9 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:hint="Email"
-            android:textColorHint="@color/black"/>
-
+            android:textColorHint="@color/black"
+            android:hint="Email"/>
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
@@ -67,9 +63,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white">
+        app:boxStrokeColor="@color/buton"
+        app:hintEnabled="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Password"
@@ -79,11 +75,9 @@
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:hint="Password"
-            android:textColorHint="@color/black"/>
-
+            android:textColorHint="@color/black"
+            android:hint="Password"/>
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/repeatPasswordLayout"
@@ -91,9 +85,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-
         app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/white"
+        app:hintEnabled="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/RPassword"
@@ -103,11 +98,9 @@
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:hint="Repeat Password"
-            android:textColorHint="@color/black"/>
-
+            android:textColorHint="@color/black"
+            android:hint="Repeat Password"/>
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignUp"

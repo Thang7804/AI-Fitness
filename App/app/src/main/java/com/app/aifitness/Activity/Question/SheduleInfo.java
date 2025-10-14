@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,14 +20,22 @@ public class SheduleInfo extends AppCompatActivity {
     private RadioGroup rgDayPerWeek;
     private RadioGroup rgWorkoutTime;
     private Button btnSubmit;
+    private TextView btnBack ;
     private User currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.scheduleinfo);
+
         rgDayPerWeek = findViewById(R.id.rgDaysPerWeek);
-        rgWorkoutTime = findViewById(R.id.rgFitnessGoal);
+        rgWorkoutTime = findViewById(R.id.rgWorkoutTime);
         btnSubmit = findViewById(R.id.btnNextSchedule);
+        btnBack = findViewById(R.id.btnBack);
         currentUser =(User) getIntent().getSerializableExtra("user");
+        btnBack.setOnClickListener(v->{
+            Intent intent = new Intent(SheduleInfo.this, GoalInfor.class);
+            startActivity(intent);
+                });
         btnSubmit.setOnClickListener(v->{
             int selectedId1 = rgDayPerWeek.getCheckedRadioButtonId();
             if (selectedId1 == R.id.rb2Days) {
@@ -45,7 +54,7 @@ public class SheduleInfo extends AppCompatActivity {
                 return;
             }
             int selectedId2 = rgWorkoutTime.getCheckedRadioButtonId();
-            if (selectedId1 == R.id.rb15Min) {
+            if (selectedId2 == R.id.rb15Min) {
                 currentUser.availableTime = 15;
             } else if (selectedId2 == R.id.rb30Min) {
                 currentUser.availableTime = 30;
