@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AIFitness"
         tools:replace="android:allowBackup,android:fullBackupContent,android:dataExtractionRules,android:theme,android:label">
+
         <activity
-            android:name=".Activity.GenWorkout"
+            android:name=".Activity.ExerciseDetail"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DayDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BuildActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Question.EquipHeatlth"
@@ -38,7 +49,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

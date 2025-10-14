@@ -6,13 +6,9 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.app.aifitness.Activity.GenWorkout;
+import com.app.aifitness.Activity.BuildActivity;
 import com.app.aifitness.Firebase.Callback;
 import com.app.aifitness.Firebase.FirebaseHelper;
 import com.app.aifitness.Model.User;
@@ -35,9 +31,9 @@ public class EquipHeatlth extends AppCompatActivity {
         btnSubmit.setOnClickListener(v->{
             int selectedId1 = rgEquip.getCheckedRadioButtonId();
             if (selectedId1 == R.id.rbNoEquipment) {
-                currentUser.hasEquipment = "No Equiqment";
+                currentUser.hasEquipment = false;
             } else if (selectedId1 == R.id.rbHaveDumbbell) {
-                currentUser.hasEquipment = "HaveDumbbell";
+                currentUser.hasEquipment = true;
             }
             else {
                 Toast.makeText(this, "Please select!", Toast.LENGTH_SHORT).show();
@@ -60,7 +56,7 @@ public class EquipHeatlth extends AppCompatActivity {
                 @Override
                 public void onSuccess() {
                     Toast.makeText(EquipHeatlth.this,"Success save user info", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(EquipHeatlth.this, GenWorkout.class);
+                    Intent intent = new Intent(EquipHeatlth.this, BuildActivity.class);
                     startActivity(intent);
                 }
 

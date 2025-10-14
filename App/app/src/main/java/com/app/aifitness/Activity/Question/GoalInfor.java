@@ -7,16 +7,10 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.app.aifitness.Model.User;
 import com.app.aifitness.R;
-
-import kotlinx.coroutines.scheduling.GlobalQueue;
 
 public class GoalInfor extends AppCompatActivity {
     private RadioGroup rgGoal;
@@ -38,9 +32,9 @@ public class GoalInfor extends AppCompatActivity {
             } else if (selectedId == R.id.rbGainMuscle) {
                 currentUser.goal = "Gain Muscle";
             }  else if (selectedId == R.id.rbMaintainFitness){
-                currentUser.focusArea="Maintain Fitness";
+                currentUser.goal="Maintain Fitness";
             } else if (selectedId == R.id.rbIncreaseStamina){
-                currentUser.focusArea="Increase Stamina";
+                currentUser.goal="Increase Stamina";
             }
             else {
                 Toast.makeText(this, "Please select!", Toast.LENGTH_SHORT).show();
@@ -58,7 +52,7 @@ public class GoalInfor extends AppCompatActivity {
                     Toast.makeText(this, "Height and weight must be lower than your weight!", Toast.LENGTH_SHORT).show();
                 }
 
-                currentUser.goalweight = goalWeight;
+                currentUser.goalWeight = goalWeight;
 
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "Please enter a valid number!", Toast.LENGTH_SHORT).show();

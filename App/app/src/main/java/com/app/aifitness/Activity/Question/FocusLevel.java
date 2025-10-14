@@ -34,7 +34,7 @@ public class FocusLevel extends AppCompatActivity {
             if (selectedId1 == R.id.rbFullBody) {
                 currentUser.focusArea = "Full Body";
             } else if (selectedId1 == R.id.rbUpperBody) {
-                currentUser.gender = "Upper Body";
+                currentUser.focusArea = "Upper Body";
             }  else if (selectedId1 == R.id.rbLowerBody){
                 currentUser.focusArea="Lower Body";
             } else if (selectedId1 == R.id.rbCore){
@@ -46,11 +46,11 @@ public class FocusLevel extends AppCompatActivity {
             }
             int selectedId2 = rgLevel.getCheckedRadioButtonId();
             if (selectedId2 == R.id.rbBeginner) {
-                currentUser.level = "Beginner";
+                currentUser.level = 1;
             } else if (selectedId2 == R.id.rbIntermediate) {
-                currentUser.level = "Intermediate";
+                currentUser.level = 2;
             }  else if (selectedId2 == R.id.rbAdvanced){
-                currentUser.level="Advanced";
+                currentUser.level=3;
             }
             else {
                 Toast.makeText(this, "Please select!", Toast.LENGTH_SHORT).show();

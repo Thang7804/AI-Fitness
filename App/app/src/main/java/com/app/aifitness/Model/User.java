@@ -1,43 +1,49 @@
 package com.app.aifitness.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User implements Serializable {
     public String email;
     public String goal;
-    public int availableTime;
+    public Integer availableTime;
     public String experience;
-    public String hasEquipment;
+    public Boolean hasEquipment;
     public String focusArea;
     public boolean isNew;
     public String Dob;
     public String gender;
-    public  float height;
-    public  float weight;
-    public  float goalweight;
-    public String level;
-    public int dayPerWeek;
+    public  Float height;
+    public  Float weight;
+    public  Float goalWeight;
+    public Integer level;
+    public Integer currentDay;
+    public Integer dayPerWeek;
     public String healthIssue;
+    public Map<String, Map<String, Object>> schedule;
     public User(){}
     public User(String email) {
         this.email = email;
-        this.goal = "";
-        this.experience = "";
-        this.availableTime = 0;
-        this.hasEquipment = "";
-        this.focusArea = "";
+        this.goal = null;
+        this.experience = null;
+        this.availableTime = null;
+        this.hasEquipment = false;
+        this.focusArea = null;
         this.isNew= true;
-        this.Dob="";
-        this.gender="";
-        this.height=0;
-        this.weight=0;
-        this.goalweight=0;
-        this.level="";
-        this.dayPerWeek=0;
-        this.healthIssue="";
+        this.Dob=null;
+        this.gender=null;
+        this.height=null;
+        this.weight=null;
+        this.goalWeight =null;
+        this.level=null;
+        this.dayPerWeek=null;
+        this.healthIssue=null;
+        this.schedule = new HashMap<>();
+        this.currentDay=null;
     }
 
-    public User(String email, String goal, int availableTime, String experience, String hasEquipment, String focusArea, boolean isNew, String dob, String gender, float height, float weight, float goalweight, String level, int dayPerWeek, String healthIssue) {
+    public User(String email, String goal, Integer availableTime, String experience, Boolean hasEquipment, String focusArea, boolean isNew, String dob, String gender, Float height, Float weight, Float goalWeight, Integer level, Integer currentDay, Integer dayPerWeek, String healthIssue, Map<String, Map<String, Object>> schedule) {
         this.email = email;
         this.goal = goal;
         this.availableTime = availableTime;
@@ -45,13 +51,15 @@ public class User implements Serializable {
         this.hasEquipment = hasEquipment;
         this.focusArea = focusArea;
         this.isNew = isNew;
-        this.Dob = dob;
+        Dob = dob;
         this.gender = gender;
         this.height = height;
         this.weight = weight;
-        this.goalweight = goalweight;
+        this.goalWeight = goalWeight;
         this.level = level;
+        this.currentDay = currentDay;
         this.dayPerWeek = dayPerWeek;
         this.healthIssue = healthIssue;
+        this.schedule = schedule;
     }
 }
