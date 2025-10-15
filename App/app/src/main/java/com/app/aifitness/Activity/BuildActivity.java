@@ -48,7 +48,6 @@ public class BuildActivity extends AppCompatActivity {
                     public void onSuccess(List<Exercise> exercises) {
                         allExercises.clear();
                         allExercises.addAll(exercises);
-                        Log.d("BuildActivity", "Exercises loaded: " + allExercises.size());
                         List<Exercise> recommended = rules.filterRecommended(user, allExercises);
                         if (user.currentDay == null) user.currentDay = 0;
                         for(int i=0; i<30; i++){

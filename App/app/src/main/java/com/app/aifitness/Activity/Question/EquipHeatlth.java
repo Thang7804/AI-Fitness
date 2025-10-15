@@ -47,7 +47,7 @@ public class EquipHeatlth extends AppCompatActivity {
                 return;
             }
             int selectedId2 = rgHealth.getCheckedRadioButtonId();
-            if (selectedId1 == R.id.rbNoIssues) {
+            if (selectedId2 == R.id.rbNoIssues) {
                 currentUser.healthIssue = "No Issues";
             } else if (selectedId2 == R.id.rbJointPain) {
                 currentUser.healthIssue = "Joint, Knee Pain";
