@@ -15,11 +15,19 @@ public class Rules {
         else if (bmi < 18.5 && ex.intensity >= 3) score -= 15;
 
         String issue = user.healthIssue.toLowerCase();
-        String exName = ex.name.toLowerCase();
+        List<String> affectedParts = ex.issues;
 
-        if (issue.contains("knee") && exName.contains("jump")) score -= 25;
-        if (issue.contains("back") && (exName.contains("deadlift") || exName.contains("crunch"))) score -= 25;
-        if (issue.contains("heart") && ex.intensity >= 3) score -= 30;
+        if (issue.contains("knee") && containsAffectedPart(affectedParts, "knee")) {
+            score -= 25;
+        }
+
+        if (issue.contains("back") && containsAffectedPart(affectedParts, "back")) {
+            score -= 25;
+        }
+
+        if (issue.contains("heart") && ex.intensity >= 3) {
+            score -= 30;
+        }
 
         switch (user.goal.toLowerCase()) {
             case "lose weight":
@@ -53,5 +61,14 @@ public class Rules {
             if (s >= 40) result.add(ex);
         }
         return result;
+    }
+    private boolean containsAffectedPart(List<String> affectedParts, String keyword) {
+        if (affectedParts == null) return false;
+        for (String part : affectedParts) {
+            if (part.toLowerCase().contains(keyword.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
