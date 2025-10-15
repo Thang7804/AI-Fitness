@@ -90,7 +90,7 @@ public class ScheduleBuild {
         if (ex.isDynamic) {
             return Math.max(10, base);
         } else {
-            return Math.max(8, base * 3);
+            return Math.max(8, base * 2);
         }
     }
 }

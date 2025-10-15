@@ -60,7 +60,7 @@ public class FirebaseHelper {
     public void updateUser(User user, Callback updateCallback) {
         String uid = getCurrentUserId();
         if (uid == null) {
-            updateCallback.onError("User chưa đăng nhập");
+            updateCallback.onError("User has not logged in");
             return;
         }
 
@@ -89,13 +89,13 @@ public class FirebaseHelper {
         if (user.schedule != null && !user.schedule.isEmpty()) updates.put("schedule", user.schedule);
 
         if (updates.isEmpty()) {
-            updateCallback.onError("Không có thông tin để cập nhật");
+            updateCallback.onError("No updates to apply");
             return;
         }
 
         userRef.update(updates)
                 .addOnSuccessListener(aVoid -> updateCallback.onSuccess())
-                .addOnFailureListener(e -> updateCallback.onError("Lỗi cập nhật: " + e.getMessage()));
+                .addOnFailureListener(e -> updateCallback.onError(e.getMessage()));
     }
 
     public void getCurrentUser(String userId, DataCallBack<User> callback) {
@@ -148,7 +148,7 @@ public class FirebaseHelper {
     }
     public void updateIsNewStatus(String uid,boolean isNewStatus, Callback updateCallback) {
         if (uid == null) {
-            updateCallback.onError("User chưa đăng nhập");
+            updateCallback.onError("User has not logged in");
             return;
         }
 
@@ -161,6 +161,7 @@ public class FirebaseHelper {
                 .addOnSuccessListener(aVoid -> updateCallback.onSuccess())
                 .addOnFailureListener(e -> updateCallback.onError( e.getMessage()));
     }
+
     public String getCurrentUserId() {
         return mAuth.getCurrentUser() != null ? mAuth.getCurrentUser().getUid() : null;
     }
