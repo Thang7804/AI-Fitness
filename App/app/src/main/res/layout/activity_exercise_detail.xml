@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
+            android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:text="← Back"
             android:textColor="@color/white"
@@ -43,7 +43,7 @@
         android:layout_height="200dp"
         android:layout_marginTop="16dp" />
 
-    <!-- Scrollable content -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,8 +55,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="16dp">
-
-            <!-- Basic Info -->
             <TextView
                 android:id="@+id/tvExerciseName"
                 android:layout_width="match_parent"
@@ -132,7 +130,6 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <!-- Optional Tags -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,8 +163,6 @@
                 android:text="- Back arching\n- Elbows moving too far forward"
                 android:textColor="#E0E0E0"
                 android:textSize="14sp" />
-
-            <!-- Description -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -201,7 +196,6 @@
                 android:textSize="16sp"
                 android:layout_marginTop="8dp"/>
 
-            <!-- Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnStartExercise"
                 android:layout_width="match_parent"
